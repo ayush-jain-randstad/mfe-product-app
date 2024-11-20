@@ -1,0 +1,13 @@
+{
+  "name": "mfe-product-app",
+  "private": true,
+  "workspaces": [
+    "login",
+    "cart-app",
+    "main-app",
+    "product-app"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
