@@ -16,7 +16,7 @@ const App = () => {
   const [login, setLogin] = useState<boolean>(true);
   return (
     <>
-      <div className="w-[400px] m-auto border-2 mt-2 p-2">
+      <div className="w-[400px] m-auto border-2 border-slate-400 mt-2 p-2 rounded-2xl shadow-2xl">
       <AuthLables loginLable={login} setLogin={setLogin} />
       {login ? <Login /> : <Register />}
       </div>
