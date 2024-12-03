@@ -5,6 +5,7 @@ const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 const [name, setName] = useState('');
 const [confirmPassword, setConfirmPassword] = useState('');
+const [successMsg, setSuccessMsg] = useState(false);
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(email, password, name, confirmPassword);
@@ -23,14 +24,16 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     .then(res => res.json())
     .then(data => {
         data.token && localStorage.setItem('token', data.token)
+        setTimeout(() => { setSuccessMsg(true) }, 2000) 
     })
     .catch(err => {
         console.log(err)
     })
 }
   return (
-    <div>
-        <form onSubmit={handleSubmit} className="login-form flex flex-col items-center gap-2  m-2 w-full mx-auto">
+    <div>   
+        {successMsg && <h1 className='text-center text-lg font-bold text-green-500'>Registration Successfull, Please Login</h1>}
+        <form id = "register-form" onSubmit={handleSubmit} className="login-form flex flex-col items-center gap-2  m-2 w-full mx-auto">
         <div className='flex flex-col justify-between p-2 w-full'>
             <input className='border-2 bg-slate-200  p-1 rounded' placeholder='Enter your name' type="text" id="name" name="name" onChange={(e) => setName(e.target.value)} value={name}/>
             </div>
