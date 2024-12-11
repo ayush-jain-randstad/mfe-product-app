@@ -24,6 +24,7 @@ const Login = () => {
     .then(res => res.json())
     .then(data => {
       data.token && localStorage.setItem('token', data.token)
+      window.location.reload()
     })
     .catch(err => console.log(err))
   }
@@ -33,7 +34,7 @@ const Login = () => {
 
   return (
     <>
-        <form onSubmit={handleSubmit} className="login-form flex flex-col items-center gap-2 m-2 w-full m-auto">
+        <form id="login-form" onSubmit={handleSubmit} className="login-form flex flex-col items-center gap-2 m-2 w-full m-auto">
         <div className='flex flex-col p-2 w-full'>
           <input placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" className='border-2 bg-slate-200 p-1 rounded' value={email}/>
         </div>
