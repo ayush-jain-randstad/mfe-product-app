@@ -19,7 +19,7 @@ export interface IProductImages {
   images: string[];
 }
 
-const Weather: React.FC = () => {
+const ProductList: React.FC = () => {
   const [products, setProducts] = useState<IProductItem[]>([]);
   const [searchText, setSearchText] = useState("");
   const [savedProducts, setsavedProducts] = useState<IProductItem[]>([]);
@@ -198,4 +198,4 @@ const Weather: React.FC = () => {
   );
 };
 
-export default Weather;
+export default ProductList;
